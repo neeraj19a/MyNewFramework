@@ -17,7 +17,7 @@
 			<plugins>
 				<plugin>
 					<artifactId>maven-compiler-plugin</artifactId>
-					<version>3.0</version>
+					<version>3.6.1</version>
 					<configuration>
 						<source>1.7</source>
 						<target>1.7</target>
@@ -74,7 +74,8 @@
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<aspectj.version>1.8.8</aspectj.version>
 		<allure.version>1.4.22</allure.version>
-
+		<maven.compiler.source>1.8</maven.compiler.source>
+		<maven.compiler.target>1.8</maven.compiler.target>
 		<env>test</env>
 	</properties>
 

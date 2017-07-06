@@ -10,7 +10,7 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.Test;
 
-import com.gurpreet.pages.HomePage;
+
 
 public class kingdomelikes  extends BaseTest{
 
