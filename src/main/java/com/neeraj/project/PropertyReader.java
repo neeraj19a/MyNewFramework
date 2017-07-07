@@ -20,30 +20,27 @@ public class PropertyReader {/*
 		return prop;
 	}*/
 
-	private static HashMap<String, String> propertyMap = new PropertyReader().getProperties();
+    private static HashMap<String, String> propertyMap = new PropertyReader().getProperties();
 
-	public PropertyReader()
-	{
-		propertyMap = getPropValues();
-	}
+    public PropertyReader() {
+        propertyMap = getPropValues();
+    }
 
-	public static synchronized HashMap<String, String> getProperties()
-	{
-		return propertyMap;
-	}
+    public static synchronized HashMap<String, String> getProperties() {
+        return propertyMap;
+    }
 
-	/**
-	 * get all the properties value present in config.properties
-	 * @return hash map consisting all properties in key.value pair
-	 */
-	private HashMap<String, String> getPropValues()
-	{
-		HashMap<String, String> result = new HashMap<String, String>();
+    /**
+     * get all the properties value present in config.properties
+     *
+     * @return hash map consisting all properties in key.value pair
+     */
+    private HashMap<String, String> getPropValues() {
+        HashMap<String, String> result = new HashMap<String, String>();
 
-		try
-		{
-			Properties prop = new Properties();
-		/*	String propFileName = "config.properties";
+        try {
+            Properties prop = new Properties();
+        /*	String propFileName = "config.properties";
 
 			InputStream inputStream= getClass().getClassLoader().getResourceAsStream(propFileName);
 
@@ -51,36 +48,33 @@ public class PropertyReader {/*
 			{
 				prop.load(inputStream);
 		*/
-						FileInputStream stream = new FileInputStream(new File(
-						System.getProperty("user.dir")
-								+ "\\src\\main\\java\\resources\\config.properties"));
-				prop.load(stream);
+            FileInputStream stream = new FileInputStream(new File(
+                    System.getProperty("user.dir")
+                            + "\\src\\main\\java\\resources\\config.properties"));
+            prop.load(stream);
 			/*}
 			else
 			{
 				throw new FileNotFoundException("Property file '" + propFileName + "' not found in the classpath");
 			}
 */
-			//E:\MyNewFramework\src\main\java\resources\testdata\PSATestData.xml
-			//E:\MyNewFramework\src\main\java\resources\config.properties
-			// get the property values
-			Set propNames = prop.stringPropertyNames();
-			Iterator<String> iterator = propNames.iterator();
-			while (iterator.hasNext())
-			{
-				String key = iterator.next();
-				result.put(key , prop.getProperty(key));
-			}
+            //E:\MyNewFramework\src\main\java\resources\testdata\PSATestData.xml
+            //E:\MyNewFramework\src\main\java\resources\config.properties
+            // get the property values
+            Set propNames = prop.stringPropertyNames();
+            Iterator<String> iterator = propNames.iterator();
+            while (iterator.hasNext()) {
+                String key = iterator.next();
+                result.put(key, prop.getProperty(key));
+            }
 
-			stream.close();
+            stream.close();
 
-			return result;
-		}
-		catch (Exception e)
-		{
-			e.printStackTrace();
-		}
+            return result;
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
 
-		return null;
-	}
+        return null;
+    }
 }

@@ -14,6 +14,7 @@ import org.testng.Assert;
 import org.testng.annotations.Test;
 
 import com.neeraj.project.PropertyReader;
+import ru.yandex.qatools.allure.annotations.Title;
 
 import static com.neeraj.project.PropertyReader.getProperties;
 import static com.neeraj.project.XMLReader.getTestDataBasedOnEnviornment;
@@ -21,8 +22,7 @@ import static com.neeraj.project.XMLReader.getTestDataBasedOnEnviornment;
 public class Test1 extends BaseTest {
 
 
-
-
+    @Title("First Allure Test case")
     @Test
     public static void function1Test1() throws IOException {
         //Test data Support
@@ -39,6 +39,8 @@ public class Test1 extends BaseTest {
         } else {
             System.out.println("Property not updated or not found");
         }
+        Assert.assertEquals("One".equals("Two"), true);
+
     }
 
     @Test(groups = "my")
@@ -58,7 +60,6 @@ public class Test1 extends BaseTest {
         App app = new App();
         //app.opengmail();
         driver.get("http://en.wikipedia.org/");
-        Assert.assertEquals("1".equals("2"),true);
         WebDriverOperations webDriverOperations = new WebDriverOperations();
         System.out.println(webDriverOperations.returnHTML("#mp-itn b a"));
 

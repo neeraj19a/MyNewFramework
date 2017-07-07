@@ -521,7 +521,7 @@ public class App extends BaseTest {
         driver.manage().window().maximize();
         driver.get(baseurl);
         /*wops.waitForPageToLoad("login");
-		homePage.clickTrafficEmail("mortalglobe@gmail.com");
+        homePage.clickTrafficEmail("mortalglobe@gmail.com");
 		homePage.clickTrafficPassword("sur39918102007");
 		String testcaptcha= JOptionPane.showInputDialog("Please enter the captch value: ");
 		Thread.sleep(5000);

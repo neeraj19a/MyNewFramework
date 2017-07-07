@@ -31,7 +31,7 @@ public class XMLReader {
 
         try {
             Document document = builder.build(xmlFile);
-            Element rootNode = document.getRootElement().getChild("PSA"+enviornment);
+            Element rootNode = document.getRootElement().getChild("PSA" + enviornment);
             System.out.println("RootNode-->" + rootNode);
 
             List list = rootNode.getChildren(component);

@@ -12,19 +12,20 @@ import org.testng.annotations.Test;
 
 public class SeleniumGrid {
 
-	public WebDriver driver1;
-	@BeforeClass
-	public void setup() throws MalformedURLException{
-		DesiredCapabilities capabilities=new DesiredCapabilities();
-		driver1=new RemoteWebDriver(new URL("http://localhost:4444/wd/hub"),capabilities);
-		//driver1.get("http://newtours.demoaut.com/");
-	}
-	
-	@Test
-	public void testing(){
-		driver1.get("http://newtours.demoaut.com/");
-		driver1.findElement(By.xpath(".//input[@name='userName']")).click();
-		driver1.findElement(By.xpath(".//input[@name='userName']")).sendKeys("hello");
-		
-	}
+    public WebDriver driver1;
+
+    @BeforeClass
+    public void setup() throws MalformedURLException {
+        DesiredCapabilities capabilities = new DesiredCapabilities();
+        driver1 = new RemoteWebDriver(new URL("http://localhost:4444/wd/hub"), capabilities);
+        //driver1.get("http://newtours.demoaut.com/");
+    }
+
+    @Test
+    public void testing() {
+        driver1.get("http://newtours.demoaut.com/");
+        driver1.findElement(By.xpath(".//input[@name='userName']")).click();
+        driver1.findElement(By.xpath(".//input[@name='userName']")).sendKeys("hello");
+
+    }
 }
