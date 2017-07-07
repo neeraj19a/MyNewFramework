@@ -1,4 +1,4 @@
-package com.gurpreet.pages;
+package com.neeraj.pages;
 
 import org.testng.annotations.Test;
 

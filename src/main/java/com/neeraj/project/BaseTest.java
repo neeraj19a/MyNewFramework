@@ -1,4 +1,4 @@
-package com.gurpreet.project;
+package com.neeraj.project;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;

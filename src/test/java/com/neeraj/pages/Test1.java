@@ -1,26 +1,22 @@
-package com.gurpreet.pages;
+package com.neeraj.pages;
 
 import java.io.IOException;
 import java.util.HashMap;
-import java.util.List;
 
-import com.gurpreet.project.App;
-import com.gurpreet.project.BaseTest;
-import com.gurpreet.project.WebDriverOperations;
+import com.neeraj.project.App;
+import com.neeraj.project.BaseTest;
+import com.neeraj.project.WebDriverOperations;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.firefox.FirefoxDriver;
+import org.testng.Assert;
 import org.testng.annotations.Test;
 
-import com.gurpreet.project.PropertyReader;
+import com.neeraj.project.PropertyReader;
 
-import static com.gurpreet.project.PropertyReader.getProperties;
-import static com.gurpreet.project.XMLReader.getTestDataBasedOnEnviornment;
+import static com.neeraj.project.PropertyReader.getProperties;
+import static com.neeraj.project.XMLReader.getTestDataBasedOnEnviornment;
 
 public class Test1 extends BaseTest {
 
@@ -62,7 +58,7 @@ public class Test1 extends BaseTest {
         App app = new App();
         //app.opengmail();
         driver.get("http://en.wikipedia.org/");
-
+        Assert.assertEquals("1".equals("2"),true);
         WebDriverOperations webDriverOperations = new WebDriverOperations();
         System.out.println(webDriverOperations.returnHTML("#mp-itn b a"));
 

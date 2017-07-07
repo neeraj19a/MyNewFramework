@@ -1,8 +1,7 @@
-package com.gurpreet.pages;
+package com.neeraj.pages;
 
-import com.gurpreet.project.BaseTest;
+import com.neeraj.project.BaseTest;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.firefox.FirefoxDriver;
 import org.testng.annotations.Test;
 
 public class Test2 extends BaseTest {

@@ -8,11 +8,11 @@
       </run>
     </groups>
     <classes>
-      <class name="com.gurpreet.pages.Test1">
+      <class name="Test1">
         <methods>
           <include name="function1Test1"/>
         </methods>
-      </class> <!-- com.gurpreet.pages.Test1 -->
+      </class> <Test1est1 -->
     </classes>
   </test> <!-- Test(failed) -->
 </suite> <!-- Failed suite [Suite] -->

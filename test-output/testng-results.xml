@@ -6,34 +6,34 @@
     <groups>
     </groups>
     <test name="Test" duration-ms="274" started-at="2017-07-06T15:19:38Z" finished-at="2017-07-06T15:19:38Z">
-      <class name="com.gurpreet.pages.Test2">
-        <test-method status="PASS" signature="function1Test1()[pri:0, instance:com.gurpreet.pages.Test2@27c20538]" name="function1Test1" duration-ms="14" started-at="2017-07-06T20:49:38Z" finished-at="2017-07-06T20:49:38Z">
+      <class name="Test2">
+        <test-method status="PASS" signature="function1Test1()[pri:0, instance:Test2@27c20538]" name="function1Test1" duration-ms="14" started-at="2017-07-06T20:49:38Z" finished-at="2017-07-06T20:49:38Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- function1Test1 -->
-      </class> <!-- com.gurpreet.pages.Test2 -->
-      <class name="com.gurpreet.pages.Test1">
-        <test-method status="PASS" signature="function1Test1()[pri:0, instance:com.gurpreet.pages.Test1@42dafa95]" name="function1Test1" duration-ms="71" started-at="2017-07-06T20:49:38Z" finished-at="2017-07-06T20:49:38Z">
+      </class> <Test2est2 -->
+      <class name="Test1">
+        <test-method status="PASS" signature="function1Test1()[pri:0, instance:Test1@42dafa95]" name="function1Test1" duration-ms="71" started-at="2017-07-06T20:49:38Z" finished-at="2017-07-06T20:49:38Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- function1Test1 -->
-        <test-method status="PASS" signature="function3Test1()[pri:0, instance:com.gurpreet.pages.Test1@42dafa95]" name="function3Test1" duration-ms="16" started-at="2017-07-06T20:49:38Z" finished-at="2017-07-06T20:49:38Z">
+        <test-method status="PASS" signature="function3Test1()[pri:0, instance:Test1@42dafa95]" name="function3Test1" duration-ms="16" started-at="2017-07-06T20:49:38Z" finished-at="2017-07-06T20:49:38Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- function3Test1 -->
-      </class> <!-- com.gurpreet.pages.Test1 -->
-      <class name="com.gurpreet.pages.Test4">
-        <test-method status="PASS" signature="function1Test1()[pri:0, instance:com.gurpreet.pages.Test4@56ac3a89]" name="function1Test1" duration-ms="34" started-at="2017-07-06T20:49:38Z" finished-at="2017-07-06T20:49:38Z">
+      </class> <Test1est1 -->
+      <class name="Test4">
+        <test-method status="PASS" signature="function1Test1()[pri:0, instance:Test4@56ac3a89]" name="function1Test1" duration-ms="34" started-at="2017-07-06T20:49:38Z" finished-at="2017-07-06T20:49:38Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- function1Test1 -->
-      </class> <!-- com.gurpreet.pages.Test4 -->
-      <class name="com.gurpreet.pages.Test3">
-        <test-method status="PASS" signature="function1Test1()[pri:0, instance:com.gurpreet.pages.Test3@72d818d1]" name="function1Test1" duration-ms="11" started-at="2017-07-06T20:49:38Z" finished-at="2017-07-06T20:49:38Z">
+      </class> <Test4est4 -->
+      <class name="Test3">
+        <test-method status="PASS" signature="function1Test1()[pri:0, instance:Test3@72d818d1]" name="function1Test1" duration-ms="11" started-at="2017-07-06T20:49:38Z" finished-at="2017-07-06T20:49:38Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- function1Test1 -->
-      </class> <!-- com.gurpreet.pages.Test3 -->
+      </class> <Test3est3 -->
     </test> <!-- Test -->
   </suite> <!-- Suite -->
 </testng-results>

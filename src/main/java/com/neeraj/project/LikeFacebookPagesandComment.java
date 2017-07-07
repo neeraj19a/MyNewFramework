@@ -1,4 +1,4 @@
-package com.gurpreet.project;
+package com.neeraj.project;
 import java.util.ArrayList;
 import java.util.List;
 import org.openqa.selenium.By;

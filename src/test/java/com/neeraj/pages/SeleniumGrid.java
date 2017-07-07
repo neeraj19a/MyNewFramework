@@ -1,4 +1,4 @@
-package com.gurpreet.pages;
+package com.neeraj.pages;
 
 import java.net.MalformedURLException;
 import java.net.URL;
