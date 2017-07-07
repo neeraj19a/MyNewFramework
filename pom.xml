@@ -124,6 +124,7 @@
             <version>2.47.2</version>
         </dependency>
 
+
     </dependencies>
 
 
@@ -134,6 +135,10 @@
                 <groupId>ru.yandex.qatools.allure</groupId>
                 <artifactId>allure-maven-plugin</artifactId>
                 <version>2.2</version>
+                <configuration>
+                    <reportDirectory>allure-report</reportDirectory>
+                    <resultsDirectory>allure-results</resultsDirectory>
+                </configuration>
             </plugin>
         </plugins>
     </reporting>
