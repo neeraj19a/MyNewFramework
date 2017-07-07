@@ -1,8 +1,6 @@
 package com.gurpreet.project;
 
-import java.util.Iterator;
-import java.util.Random;
-import java.util.Set;
+import java.util.*;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.Cookie;
@@ -16,201 +14,218 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class WebDriverOperations extends BaseTest {
 
-	WebDriverWait wait = new WebDriverWait(driver, 18);
-	private WebElement webElem;
 
-	public WebDriverOperations onElement(WebElement element) {
-		this.webElem = element;
-		return this;
-	}
+    WebDriverWait wait = new WebDriverWait(driver, 18);
+    private WebElement webElem;
 
-	public WebDriverOperations click() {
-		webElem.click();
-		return this;
-	}
+    public WebDriverOperations onElement(WebElement element) {
+        this.webElem = element;
+        return this;
+    }
 
-	public void click(WebElement element) {
-		element.click();
-	}
+    public WebDriverOperations click() {
+        webElem.click();
+        return this;
+    }
 
-	/**
-	 * This function will wait till whole page gets loaded with the mentioned
-	 * URL
-	 * 
-	 * @param pageURL
-	 * @return
-	 */
-	public boolean waitForPageToLoad(final String pageURL) {
+    public void click(WebElement element) {
+        element.click();
+    }
 
-		WebDriverWait wait = new WebDriverWait(driver, 45);
-		return wait.until(new ExpectedCondition<Boolean>() {
-			public Boolean apply(WebDriver d) {
+    /**
+     * This function will wait till whole page gets loaded with the mentioned
+     * URL
+     *
+     * @param pageURL
+     * @return
+     */
+    public boolean waitForPageToLoad(final String pageURL) {
 
-				boolean flag = (((JavascriptExecutor) driver)
-						.executeScript("return document.readyState")
-						.equals("complete"));
-				boolean flag1 = driver.getCurrentUrl().contains(pageURL);
-				return flag && flag1;
+        WebDriverWait wait = new WebDriverWait(driver, 45);
+        return wait.until(new ExpectedCondition<Boolean>() {
+            public Boolean apply(WebDriver d) {
 
-			}
-		});
-	}
+                boolean flag = (((JavascriptExecutor) driver)
+                        .executeScript("return document.readyState")
+                        .equals("complete"));
+                boolean flag1 = driver.getCurrentUrl().contains(pageURL);
+                return flag && flag1;
 
-	public void dynamicwait(WebElement elem) {
-		wait.until(ExpectedConditions.elementToBeClickable(elem));
-	}
+            }
+        });
+    }
 
-	public void printcookie() {
-		Set<Cookie> cookies = driver.manage().getCookies();
-		for (Cookie cookie : cookies) {
-			System.out.println(cookie);
-		}
-	}
+    public void dynamicwait(WebElement elem) {
+        wait.until(ExpectedConditions.elementToBeClickable(elem));
+    }
 
-	public void createorEditCookieValue(String cookiename, String cookievalue) {
-		Cookie cookie = driver.manage().getCookieNamed(cookiename);
-		driver.manage().deleteCookie(cookie);
-		Cookie name = new Cookie(cookiename, cookievalue);
-		driver.manage().addCookie(name);
-	}
+    public void printcookie() {
+        Set<Cookie> cookies = driver.manage().getCookies();
+        for (Cookie cookie : cookies) {
+            System.out.println(cookie);
+        }
+    }
 
-	/**
-	 * This function is used to scroll vertical
-	 * 
-	 * @param startValue
-	 * @param endValue
-	 */
+    public void createorEditCookieValue(String cookiename, String cookievalue) {
+        Cookie cookie = driver.manage().getCookieNamed(cookiename);
+        driver.manage().deleteCookie(cookie);
+        Cookie name = new Cookie(cookiename, cookievalue);
+        driver.manage().addCookie(name);
+    }
 
-	public static void scrollVerticallWithCords(int startValue, int endValue) {
-		try {
-			((JavascriptExecutor) driver).executeScript("scroll(" + startValue
-					+ "," + endValue + " );");
-			Thread.sleep(2000);
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-	}
+    /**
+     * This function is used to scroll vertical
+     *
+     * @param startValue
+     * @param endValue
+     */
 
-	/**
-	 * This function is used to get Tool Tip Text by hovering mouse
-	 * 
-	 * @param Hover
-	 * @return
-	 */
+    public void scrollVerticallWithCords(int startValue, int endValue) {
+        try {
+            ((JavascriptExecutor) driver).executeScript("scroll(" + startValue
+                    + "," + endValue + " );");
+            Thread.sleep(2000);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
 
-	public static String getToolTipTextEditAd(WebElement Hover) {
+    /**
+     * This function is used to get Tool Tip Text by hovering mouse
+     *
+     * @param Hover
+     * @return
+     */
 
-		Actions ActionChains = new Actions(driver);
-		ActionChains.moveToElement(Hover).build().perform();
-		String Tooltip = Hover.getAttribute("title");
-		try {
-			Thread.sleep(2000);
-		} catch (InterruptedException e) {
-			e.printStackTrace();
-		}
-		return Tooltip;
-	}
+    public String getToolTipTextEditAd(WebElement Hover) {
 
-	/**
-	 * This function is used to generate the String of random length
-	 * 
-	 * @param length
-	 * @return
-	 */
+        Actions ActionChains = new Actions(driver);
+        ActionChains.moveToElement(Hover).build().perform();
+        String Tooltip = Hover.getAttribute("title");
+        try {
+            Thread.sleep(2000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        return Tooltip;
+    }
 
-	public static String getRandomString(int length) {
-		final String charset = "abcdefghijklmnopqrstuvwxyz";
-		Random rand = new Random(System.currentTimeMillis());
-		StringBuffer sb = new StringBuffer();
-		for (int i = 0; i < length; i++) {
-			int pos = rand.nextInt(charset.length());
-			sb.append(charset.charAt(pos));
-		}
-		return sb.toString();
-	}
+    /**
+     * This function is used to generate the String of random length
+     *
+     * @param length
+     * @return
+     */
 
-	/**
-	 * This function is used to navigate directly to a particular URL
-	 * 
-	 * @param driver
-	 * @param URL
-	 */
-	public void navigatethirdparty(WebDriver driver, String URL) {
-		driver.navigate().to(URL);
-	}
+    public static String getRandomString(int length) {
+        final String charset = "abcdefghijklmnopqrstuvwxyz";
+        Random rand = new Random(System.currentTimeMillis());
+        StringBuffer sb = new StringBuffer();
+        for (int i = 0; i < length; i++) {
+            int pos = rand.nextInt(charset.length());
+            sb.append(charset.charAt(pos));
+        }
+        return sb.toString();
+    }
 
-	/**
-	 * Generic method to Switch to Pop Up, enter element as parameter by which
-	 * clicking on it pop up opens
-	 * 
-	 * @param popup
-	 * @return
-	 */
-	public String switchtoPopup(WebElement popup) {
-		String mainWindowHandle = driver.getWindowHandle();
-		popup.click();
-		Set s = driver.getWindowHandles();
-		Iterator ite = s.iterator();
-		while (ite.hasNext()) {
-			String popupHandle = ite.next().toString();
-			if (!popupHandle.contains(mainWindowHandle)) {
-				driver.switchTo().window(popupHandle);
-			}
-		}
+    /**
+     * This function is used to navigate directly to a particular URL
+     *
+     * @param driver
+     * @param URL
+     */
+    public void navigatethirdparty(WebDriver driver, String URL) {
+        driver.navigate().to(URL);
+    }
 
-		return mainWindowHandle;
-	}
+    /**
+     * Generic method to Switch to Pop Up, enter element as parameter by which
+     * clicking on it pop up opens
+     *
+     * @param popup
+     * @return
+     */
+    public String switchtoPopup(WebElement popup) {
+        String mainWindowHandle = driver.getWindowHandle();
+        popup.click();
+        Set s = driver.getWindowHandles();
+        Iterator ite = s.iterator();
+        while (ite.hasNext()) {
+            String popupHandle = ite.next().toString();
+            if (!popupHandle.contains(mainWindowHandle)) {
+                driver.switchTo().window(popupHandle);
+            }
+        }
 
-	/**
-	 * wait for element to be visible and enabled in order to be clickable
-	 * 
-	 * @param fileName
-	 * @param element
-	 * @return
-	 */
+        return mainWindowHandle;
+    }
 
-	// Revisit
-	public boolean waitForElementToBeClickable(By element) {
-		try {
-			wait = new WebDriverWait(driver, 90);
-			wait.until(ExpectedConditions.elementToBeClickable(element));
-		} catch (Exception e) {
-			return false;
-		}
+    /**
+     * wait for element to be visible and enabled in order to be clickable
+     *
+     * @param
+     * @param element
+     * @return
+     */
 
-		return true;
-	}
+    // Revisit
+    public boolean waitForElementToBeClickable(By element) {
+        try {
+            wait = new WebDriverWait(driver, 90);
+            wait.until(ExpectedConditions.elementToBeClickable(element));
+        } catch (Exception e) {
+            return false;
+        }
 
-	/**
-	 * scroll element to bring in view, scroll down the page
-	 * 
-	 * @param element
-	 */
-	public void scrollElementIntoView(WebElement element) {
-		try {
-			((JavascriptExecutor) driver).executeScript(
-					"arguments[0].scrollIntoView(false);", element);
-			Thread.sleep(1000);
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-	}
+        return true;
+    }
 
-	/**
-	 * Wait for Element to be clickable
-	 * 
-	 * @param element
-	 * @return
-	 */
-	public boolean waitForElementToBeVisible(WebElement element) {
-		try {
-			wait = new WebDriverWait(driver, 90);
-			wait.until(ExpectedConditions.visibilityOf(element));
-		} catch (Exception e) {
-			return false;
-		}
+    /**
+     * scroll element to bring in view, scroll down the page
+     *
+     * @param element
+     */
+    public void scrollElementIntoView(WebElement element) {
+        try {
+            ((JavascriptExecutor) driver).executeScript(
+                    "arguments[0].scrollIntoView(false);", element);
+            Thread.sleep(1000);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
 
-		return true;
-	}
+    /**
+     * Wait for Element to be clickable
+     *
+     * @param element
+     * @return
+     */
+    public boolean waitForElementToBeVisible(WebElement element) {
+        try {
+            wait = new WebDriverWait(driver, 90);
+            wait.until(ExpectedConditions.visibilityOf(element));
+        } catch (Exception e) {
+            return false;
+        }
 
+        return true;
+    }
+
+    /**
+     * Function to read HTML Source from WebElement
+     *
+     * @param locator
+     * @return
+     */
+    public static List<String> returnHTML(String locator) {
+        List<WebElement> we = driver.findElements(By.cssSelector(locator));
+        List<String> elements = new ArrayList<>();
+        for (WebElement ok : we) {
+            elements.add(ok.getAttribute("outerHTML"));
+        }
+
+        System.out.println("here is HML" + elements);
+        return elements;
+    }
 }

@@ -5,6 +5,6 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 
 public class BaseTest {
 
-		public static WebDriver driver=new FirefoxDriver();
-		public static WebDriverOperations wops=new WebDriverOperations();
+    public static WebDriver driver = new FirefoxDriver();
+    public static WebDriverOperations wops = new WebDriverOperations();
 }
