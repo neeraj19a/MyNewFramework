@@ -26,7 +26,7 @@ public class XMLReader {
     public static synchronized HashMap<String, String> getTestDataBasedOnEnviornment(String testDataFile, String component, String enviornment) {
         HashMap<String, String> testData = new HashMap<String, String>();
         SAXBuilder builder = new SAXBuilder();
-        File xmlFile = new File("src/main/java/resources/testdata/" + testDataFile);
+        File xmlFile = new File("src/main/java/testdata/" + testDataFile);
         System.out.println(xmlFile.getAbsolutePath());
 
         try {

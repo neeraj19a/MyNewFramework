@@ -13,10 +13,6 @@
         </groups>
         <classes>
             <class name="com.neeraj.pages.Test1"/>
-            <!--<class naTest4est4"/>
-            <class naTest2est2"/>
-            <class naTest3est3"/>
-            -->
         </classes>
     </test> <!-- Test -->
 </suite> <!-- Suite -->
