@@ -6,22 +6,23 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.remote.RemoteWebDriver;
+import org.testng.IHookCallBack;
+import org.testng.IHookable;
 import org.testng.ITestResult;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.Listeners;
 import ru.yandex.qatools.allure.annotations.Attachment;
 import java.io.File;
+import java.io.IOException;
 
-public class BaseTest {
 
+public class BaseTest implements IHookable{
+
+    String methodName="";
     public static WebDriver driver;
     //public static WebDriverOperations wops = new WebDriverOperations();
 
-
-    @Attachment
-    public byte[] screenShot() {
-        return ((TakesScreenshot) driver).getScreenshotAs(OutputType.BYTES);
-    }
 
     @BeforeMethod
     public void setup(){
@@ -43,15 +44,32 @@ public class BaseTest {
     public void tearDown(ITestResult result) {
         try {
             if (result.getStatus() == ITestResult.FAILURE) {
-                //screenshooting
-                screenShot();
             }
             System.out.println("Closing Browser");
-
             driver.quit();
         } catch (Exception e) {
             e.printStackTrace();
         }
 
+    }
+
+    @Override
+    public void run(IHookCallBack callBack, ITestResult testResult) {
+
+        callBack.runTestMethod(testResult);
+        if (testResult.getThrowable() != null) {
+            try {
+                methodName=testResult.getMethod().getMethodName();
+                takeScreenShot();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+    }
+
+    @Attachment(value = "Failure in method", type = "image/png")
+    private byte[] takeScreenShot() throws IOException {
+        System.out.println("==========Found failure in method---->  "+methodName+"  <----- Taking screenshot============");
+        return ((TakesScreenshot) driver).getScreenshotAs(OutputType.BYTES);
     }
 }

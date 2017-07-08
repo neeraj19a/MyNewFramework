@@ -39,6 +39,7 @@ public class Test1 extends BaseTest {
         } else {
             System.out.println("Property not updated or not found");
         }
+        driver.get("http://en.wikipedia.org/");
         Assert.assertEquals("One".equals("Two"), true);
 
     }
