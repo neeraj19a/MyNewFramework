@@ -19,6 +19,7 @@ public class App extends BaseTest {
     WebDriverWait dynamicwait = new WebDriverWait(driver, 15);
     String email = "mortal" + randomString() + "@gmail.com";
     HomePage homePage = new HomePage(driver);
+    WebDriverOperations wops = new WebDriverOperations();
 
 
     String facebookurl = "https://www.facebook.com/";
