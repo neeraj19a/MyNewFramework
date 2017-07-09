@@ -11,12 +11,12 @@
       </run>
     </groups>
     <classes>
-      <class name="com.neeraj.pages.Test1">
+      <class name="Test1">
         <methods>
           <include name="jsoupTestReadHTML"/>
           <include name="function1Test1"/>
         </methods>
-      </class> <!-- com.neeraj.pages.Test1 -->
+      </class> <Test1est1 -->
     </classes>
   </test> <!-- Test(failed) -->
 </suite> <!-- Failed suite [Suite] -->

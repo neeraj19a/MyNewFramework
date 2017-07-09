@@ -1,4 +1,4 @@
-package com.neeraj.pages;
+package com.neerajProject.testCases;
 
 import utilityFiles.BaseTest;
 import org.openqa.selenium.WebDriver;

@@ -1,4 +1,4 @@
-package com.neeraj.pages;
+package com.neerajProject.testCases;
 
 import org.testng.annotations.Test;
 

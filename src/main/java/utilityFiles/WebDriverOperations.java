@@ -44,8 +44,8 @@ public class WebDriverOperations extends BaseTest {
     }
 
     public WebDriverOperations setText(WebElement element, String text) {
-        System.out.println("Setting Text for WebElement-->" + element.toString() + " and text is-->" + text);
-        Log.info("Setting Text for WebElement-->" + element.toString() + " and text is-->" + text);
+        System.out.println("Setting Text " + text + " for WebElement-->" + element.toString());
+        Log.info("Setting Text " + text + " for WebElement-->" + element.toString());
         element.sendKeys(text);
         return this;
     }
@@ -60,6 +60,8 @@ public class WebDriverOperations extends BaseTest {
      */
     public boolean waitForPageToLoad(final String pageURL) {
 
+        System.out.println("Waiting for Page to Load with URL---->" + pageURL);
+        Log.info("Waiting for Page to Load with URL---->" + pageURL);
         WebDriverWait wait = new WebDriverWait(driver, 45);
         return wait.until(new ExpectedCondition<Boolean>() {
             public Boolean apply(WebDriver d) {
@@ -240,14 +242,13 @@ public class WebDriverOperations extends BaseTest {
      * @return
      */
     public static List<String> returnHTML(String locator) {
-        System.out.println("Looking for HTML with locator -->"+locator);
-        Log.info(("Looking for HTML with locator -->"+locator));
+        System.out.println("Looking for HTML with locator -->" + locator);
+        Log.info(("Looking for HTML with locator -->" + locator));
         List<WebElement> we = driver.findElements(By.cssSelector(locator));
         List<String> elements = new ArrayList<>();
         for (WebElement ok : we) {
             elements.add(ok.getAttribute("outerHTML"));
         }
-
         System.out.println("Here are Elements-->" + elements);
         System.out.println();
         return elements;

@@ -12,7 +12,7 @@
             </run>
         </groups>
         <classes>
-            <class name="com.neeraj.pages.Test1"/>
+            <class name="com.neerajProject.testCases.Test1"/>
         </classes>
     </test> <!-- Test -->
 </suite> <!-- Suite -->

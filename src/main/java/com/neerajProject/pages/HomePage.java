@@ -1,4 +1,4 @@
-package com.neeraj.project;
+package com.neerajProject.pages;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -11,6 +11,8 @@ import utilityFiles.WebDriverOperations;
 
 public class HomePage extends BaseTest {
 
+    WebDriverOperations webDriverOperations=  new WebDriverOperations();
+    ;
     public HomePage(WebDriver driver) {
         this.driver = driver;
         PageFactory.initElements(driver, this);
@@ -171,7 +173,6 @@ public class HomePage extends BaseTest {
 
     //######Facebook Login
     public void clickFacebookEmail(String Email) {
-        WebDriverOperations webDriverOperations=new WebDriverOperations();
         webDriverOperations.click(FacebookEmail);
         //FacebookEmail.click();
         //FacebookEmail.sendKeys(Email);
@@ -267,8 +268,8 @@ public class HomePage extends BaseTest {
 
     //#FacebookFunctions
     public void clicksetFirstName(String firstName) {
-        FirstName.click();
-        FirstName.sendKeys(firstName);
+        webDriverOperations.click(FirstName);
+        webDriverOperations.setText(FirstName,firstName);
     }
 
     public void clicksetLastName(String lastName) {

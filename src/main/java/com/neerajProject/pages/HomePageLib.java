@@ -1,4 +1,4 @@
-package com.neeraj.project;
+package com.neerajProject.pages;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -65,7 +65,7 @@ public class HomePageLib extends BaseTest {
         String baseurl = "https://www.facebook.com/";
         Log.info("In Facebook");
         driver.manage().window().maximize();
-        driver.get(baseurl);
+        wops.get(baseurl);
         wops.waitForPageToLoad("facebook.com");
         homePage.clicksetFirstName("Steve");
         homePage.clicksetLastName("Mathew");

@@ -3,7 +3,7 @@
 <suite guice-stage="DEVELOPMENT" name="Failed suite [Default suite]">
   <test name="Default test(failed)">
     <classes>
-      <class name="com.neeraj.project.HomePageLib">
+      <class name="com.neerajProject.pages.HomePageLib">
         <methods>
           <include name="sendmessagtraffic"/>
         </methods>

@@ -1,9 +1,10 @@
-package com.neeraj.pages;
+package com.neerajProject.testCases;
 
 import java.io.IOException;
 import java.util.HashMap;
 
-import com.neeraj.project.*;
+import com.neerajProject.pages.HomePage;
+import com.neerajProject.pages.HomePageLib;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
@@ -53,21 +54,22 @@ public class Test1 extends BaseTest {
         System.out.println("In Function2 of test 1 class");
     }
 
-    //@Test
-    public void function3Test1() {
+    @Test
+    public void function3Test1() throws InterruptedException {
         System.out.println("In Function3 of test 1 class");
+        HomePageLib homePageLib = new HomePageLib();
+        Log.info("Hi logging here");
+        Log.error("Hi logging here Error");
+        homePageLib.openfacebook();
     }
 
-    @Test
-
+    //@Test
     public static void jsoupTestReadHTML() throws InterruptedException, IOException {
         System.out.println("In Jsoup Function");
         HomePageLib app = new HomePageLib();
         Log.info("Hi logging here");
         Log.error("Hi logging here Error");
 
-        //app.opengmail();
-        //driver.get("http://en.wikipedia.org/");
         WebDriverOperations webDriverOperations = new WebDriverOperations();
         webDriverOperations.get("https://www.facebook.com/");
         //webDriverOperations.click();
