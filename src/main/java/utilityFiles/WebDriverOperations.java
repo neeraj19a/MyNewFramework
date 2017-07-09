@@ -19,6 +19,7 @@ public class WebDriverOperations extends BaseTest {
     private WebElement webElem;
 
     public WebDriverOperations get(String URL) {
+        System.out.println("Navigating to -->" + URL);
         Log.info("Navigating to -->" + URL);
         driver.get(URL);
         return this;
@@ -36,6 +37,7 @@ public class WebDriverOperations extends BaseTest {
     }
 
     public WebDriverOperations click(WebElement element) {
+        System.out.println("Clicking on Element-->" + element);
         Log.info("Clicking on Element-->" + element);
         element.click();
         return this;
@@ -152,6 +154,7 @@ public class WebDriverOperations extends BaseTest {
      * @param URL
      */
     public void navigatethirdparty(WebDriver driver, String URL) {
+
         driver.navigate().to(URL);
     }
 
@@ -237,13 +240,16 @@ public class WebDriverOperations extends BaseTest {
      * @return
      */
     public static List<String> returnHTML(String locator) {
+        System.out.println("Looking for HTML with locator -->"+locator);
+        Log.info(("Looking for HTML with locator -->"+locator));
         List<WebElement> we = driver.findElements(By.cssSelector(locator));
         List<String> elements = new ArrayList<>();
         for (WebElement ok : we) {
             elements.add(ok.getAttribute("outerHTML"));
         }
 
-        System.out.println("here is HTML" + elements);
+        System.out.println("Here are Elements-->" + elements);
+        System.out.println();
         return elements;
     }
 
