@@ -1,9 +1,12 @@
-2017-07-09 19:48:40-main--INFO -com.neerajProject.pages.BaseTest:Hi logging here
-  2017-07-09 19:48:40-main--ERROR-com.neerajProject.pages.BaseTest:Hi logging here Error
-  2017-07-09 19:48:40-main--INFO -com.neerajProject.pages.BaseTest:In Facebook
-  2017-07-09 19:48:42-main--INFO -com.neerajProject.pages.BaseTest:Navigating to -->https://www.facebook.com/
-  2017-07-09 19:48:51-main--INFO -com.neerajProject.pages.BaseTest:Waiting for Page to Load with URL---->facebook.com
-  2017-07-09 19:48:52-main--INFO -com.neerajProject.pages.BaseTest:Clicking on Element-->[[ChromeDriver: chrome on WIN8_1 (747c877a23e74758e3d9cb4077f3cfe9)] -> xpath: .//input[@name='firstname']]
-  2017-07-09 19:48:52-main--INFO -com.neerajProject.pages.BaseTest:Setting Text Steve for WebElement-->[[ChromeDriver: chrome on WIN8_1 (747c877a23e74758e3d9cb4077f3cfe9)] -> xpath: .//input[@name='firstname']]
-  2017-07-09 19:48:57-main--INFO -com.neerajProject.pages.BaseTest:Waiting for Page to Load with URL---->gettingstarted
+2017-07-09 22:57:04-main--INFO -com.neerajProject.pages.BaseTest:Hi logging here
+  2017-07-09 22:57:04-main--ERROR-com.neerajProject.pages.BaseTest:Hi logging here Error
+  2017-07-09 22:57:04-main--INFO -com.neerajProject.pages.BaseTest:Navigating to -->https://training.adobe.com/training/current-courses.html#p=1&country=India
+  2017-07-09 22:57:22-main--INFO -com.neerajProject.pages.BaseTest:Waiting for Page to Load 
+  2017-07-09 22:57:34-main--INFO -com.neerajProject.pages.BaseTest:Navigating to -->https://www.facebook.com/
+  2017-07-09 22:57:46-main--INFO -com.neerajProject.pages.BaseTest:Waiting for Page to Load 
+  2017-07-09 22:57:46-main--INFO -com.neerajProject.pages.BaseTest:Clicking on Element-->[[ChromeDriver: chrome on WIN8_1 (7e6213227d2e4db8fbbc5587620fb47a)] -> xpath: .//*[@id='email']]
+  2017-07-09 22:57:46-main--INFO -com.neerajProject.pages.BaseTest:Setting Text testidtvt@gmail.com for WebElement-->[[ChromeDriver: chrome on WIN8_1 (7e6213227d2e4db8fbbc5587620fb47a)] -> xpath: .//*[@id='email']]
+  2017-07-09 22:57:47-main--INFO -com.neerajProject.pages.BaseTest:Navigating to -->http://en.wikipedia.org/
+  2017-07-09 22:57:56-main--INFO -com.neerajProject.pages.BaseTest:Waiting for Page to Load 
+  2017-07-09 22:57:56-main--INFO -com.neerajProject.pages.BaseTest:Looking for HTML with locator -->#mp-itn b a
   

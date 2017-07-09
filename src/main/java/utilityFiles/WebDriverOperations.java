@@ -1,16 +1,16 @@
 package utilityFiles;
 
 import java.util.*;
+import java.util.concurrent.TimeUnit;
 
+import com.google.common.base.Function;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Cookie;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
-import org.openqa.selenium.support.ui.ExpectedCondition;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
+import org.openqa.selenium.support.ui.*;
 
 import com.neerajProject.pages.BaseTest;
 
@@ -20,11 +20,23 @@ public class WebDriverOperations extends BaseTest {
     public WebDriverWait wait = new WebDriverWait(driver, 18);
     private WebElement webElem;
 
-    public WebDriverOperations get(String URL) {
+    public Boolean get(String URL) {
         System.out.println("Navigating to -->" + URL);
         Log.info("Navigating to -->" + URL);
         driver.get(URL);
-        return this;
+        System.out.println("Waiting for Page to Load");
+        Log.info("Waiting for Page to Load ");
+        WebDriverWait wait = new WebDriverWait(driver, 45);
+        return wait.until(new ExpectedCondition<Boolean>() {
+            public Boolean apply(WebDriver d) {
+
+                boolean flag = (((JavascriptExecutor) driver)
+                        .executeScript("return document.readyState")
+                        .equals("complete"));
+                return flag;
+
+            }
+        });
     }
 
     public WebDriverOperations onElement(WebElement element) {
@@ -256,4 +268,69 @@ public class WebDriverOperations extends BaseTest {
         return elements;
     }
 
+    //http://aksahu.blogspot.in/2013/12/finding-web-elements-by-executing.html
+    //Example
+    // To get the element String aJQueryString = "jQuery(\"div.sorted\")";
+    // To get parent of the element String aJQueryString = "jQuery(\"div.sorted\").parent()";
+    // To mouseover on the element String aJQueryString = "jQuery(\"div.sorted\").mouseover()";
+    public WebElement findElementByJQuery(final String jQueryScript) {
+        WebElement element = null;
+
+        Wait<WebDriver> wait = new FluentWait<WebDriver>(driver)
+                .withTimeout(50, TimeUnit.SECONDS)
+                .pollingEvery(50, TimeUnit.MILLISECONDS)
+                .ignoring(NoSuchElementException.class);
+        try {
+            element = wait.until(new Function<WebDriver, WebElement>() {
+                @Override
+                public WebElement apply(WebDriver d) {
+                    String script = "return " + jQueryScript + ".get(0);";
+                    JavascriptExecutor jse = (JavascriptExecutor) d;
+                    WebElement webElement = (WebElement) jse
+                            .executeScript(script);
+                    System.out.println("Here is WebElemet with JQuery" + webElement.getTagName() + "and size" + webElement.getSize());
+                    return webElement;
+                }
+            });
+        } catch (Exception e) {
+            Log.error("Failed to find the element by executing JQuery script '"
+                    + jQueryScript + "'." + e);
+        }
+        return element;
+    }
+
+
+    public List<WebElement> findElementsByJQuery(final String jQueryScript) {
+        List<WebElement> elements = null;
+
+        Wait<WebDriver> wait = new FluentWait<WebDriver>(driver)
+                .withTimeout(50, TimeUnit.SECONDS)
+                .pollingEvery(50, TimeUnit.MILLISECONDS)
+                .ignoring(NoSuchElementException.class);
+        try {
+            elements = wait.until(new Function<WebDriver, List<WebElement>>() {
+                @Override
+                public List<WebElement> apply(WebDriver d) {
+                    List<WebElement> webElements = new ArrayList<WebElement>();
+                    for (int i = 0; ; i++) {
+                        String script = "return " + jQueryScript + ".get(" + i
+                                + ");";
+                        JavascriptExecutor jse = (JavascriptExecutor) d;
+                        WebElement webElement = (WebElement) jse
+                                .executeScript(script);
+                        if (webElement != null) {
+                            webElements.add(webElement);
+                        } else {
+                            break;
+                        }
+                    }
+                    return webElements;
+                }
+            });
+        } catch (Exception e) {
+            Log.error("Failed to find the elements by executing JQuery script '"
+                    + jQueryScript + "'." + e);
+        }
+        return elements;
+    }
 }

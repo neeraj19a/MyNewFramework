@@ -8,11 +8,14 @@ import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
 import com.neerajProject.pages.BaseTest;
 import com.neerajProject.pages.HomePageLib;
+import utilityFiles.ByJQuery;
 import utilityFiles.WebDriverOperations;
 
 import static utilityFiles.PropertyReader.getProperties;
@@ -24,7 +27,7 @@ public class Test1 extends BaseTest {
 
 
     //@Title("First Allure Test case")
-    @Test
+    //@Test
     public static void function1Test1() throws IOException, InterruptedException {
         //Test data Support
         HashMap<String, String> testDataProduct1 = getTestDataBasedOnEnviornment(getProperties().get("PSA_TESTDATA_FILE"), "Product1", "QA");
@@ -56,7 +59,7 @@ public class Test1 extends BaseTest {
         System.out.println("In Function2 of test 1 class");
     }
 
-    @Test
+    //@Test
     public void function3Test1() throws InterruptedException {
         System.out.println("In Function3 of test 1 class");
         HomePageLib homePageLib = new HomePageLib();
@@ -65,7 +68,7 @@ public class Test1 extends BaseTest {
         homePageLib.openfacebook();
     }
 
-    //@Test
+    @Test
     public static void jsoupTestReadHTML() throws InterruptedException, IOException {
         System.out.println("In Jsoup Function");
         HomePageLib app = new HomePageLib();
@@ -73,9 +76,18 @@ public class Test1 extends BaseTest {
         Log.error("Hi logging here Error");
 
         WebDriverOperations webDriverOperations = new WebDriverOperations();
-        webDriverOperations.get("https://www.facebook.com/");
+        webDriverOperations.get("https://training.adobe.com/training/current-courses.html#p=1&country=India");
         //webDriverOperations.click();
+        driver.manage().window().maximize();
+        Thread.sleep(9000);
+        //JQuery Support
+        WebElement element=webDriverOperations.findElementByJQuery("jQuery(\"span:contains('Search Course')\").click()");
+        System.out.println("Lets click");
+
+        element.click();
+        System.out.println("Clicked");
         HomePage homePage=new HomePage(driver);
+        webDriverOperations.get("https://www.facebook.com/");
         homePage.clickFacebookEmail("testidtvt@gmail.com");
         webDriverOperations.get("http://en.wikipedia.org/");
         System.out.println(webDriverOperations.returnHTML("#mp-itn b a"));
