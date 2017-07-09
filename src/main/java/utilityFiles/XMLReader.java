@@ -1,4 +1,4 @@
-package com.neerajProject.pages;
+package utilityFiles;
 
 import org.jdom2.Document;
 import org.jdom2.Element;
@@ -21,7 +21,7 @@ import java.util.List;
 /**
  * Created by NEERAJ on 7/7/2017.
  */
-public class XMLReader {
+public class XMLReader extends PropertyReader{
 
     public static synchronized HashMap<String, String> getTestDataBasedOnEnviornment(String testDataFile, String component, String enviornment) {
         HashMap<String, String> testData = new HashMap<String, String>();

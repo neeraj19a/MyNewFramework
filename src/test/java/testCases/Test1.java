@@ -1,11 +1,9 @@
-package com.neerajProject.testCases;
-
-import static com.neerajProject.pages.PropertyReader.getProperties;
-import static com.neerajProject.pages.XMLReader.getTestDataBasedOnEnviornment;
+package testCases;
 
 import java.io.IOException;
 import java.util.HashMap;
 
+import com.neerajProject.pages.HomePage;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
@@ -13,18 +11,16 @@ import org.jsoup.select.Elements;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
-
-
-
-
-
+import com.neerajProject.pages.BaseTest;
+import com.neerajProject.pages.HomePageLib;
 import utilityFiles.WebDriverOperations;
 
-import com.neerajProject.pages.BaseTest;
-import com.neerajProject.pages.HomePage;
-import com.neerajProject.pages.HomePageLib;
+import static utilityFiles.PropertyReader.getProperties;
+import static utilityFiles.XMLReader.getTestDataBasedOnEnviornment;
+
 
 public class Test1 extends BaseTest {
+
 
 
     //@Title("First Allure Test case")

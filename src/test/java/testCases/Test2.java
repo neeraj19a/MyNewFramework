@@ -1,4 +1,4 @@
-package com.neerajProject.testCases;
+package testCases;
 
 import org.openqa.selenium.WebDriver;
 import org.testng.annotations.Test;

@@ -1,4 +1,4 @@
-package com.neerajProject.testCases;
+package utilityFiles;
 
 import java.net.MalformedURLException;
 import java.net.URL;
