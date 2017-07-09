@@ -1,22 +1,28 @@
 package com.neerajProject.testCases;
 
+import static com.neerajProject.pages.PropertyReader.getProperties;
+import static com.neerajProject.pages.XMLReader.getTestDataBasedOnEnviornment;
+
 import java.io.IOException;
 import java.util.HashMap;
 
-import com.neerajProject.pages.HomePage;
-import com.neerajProject.pages.HomePageLib;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
 import org.testng.Assert;
 import org.testng.annotations.Test;
-import utilityFiles.BaseTest;
-import utilityFiles.PropertyReader;
+
+
+
+
+
+
 import utilityFiles.WebDriverOperations;
 
-import static utilityFiles.PropertyReader.getProperties;
-import static utilityFiles.XMLReader.getTestDataBasedOnEnviornment;
+import com.neerajProject.pages.BaseTest;
+import com.neerajProject.pages.HomePage;
+import com.neerajProject.pages.HomePageLib;
 
 public class Test1 extends BaseTest {
 
@@ -27,7 +33,7 @@ public class Test1 extends BaseTest {
         //Test data Support
         HashMap<String, String> testDataProduct1 = getTestDataBasedOnEnviornment(getProperties().get("PSA_TESTDATA_FILE"), "Product1", "QA");
 
-        PropertyReader propertyReader = new PropertyReader();
+        //PropertyReader propertyReader = new PropertyReader();
         //propertyReader.bringObjectProperty();
         //System.out.println(System.getProperty("env"));
         Log.info("Hi logging here");

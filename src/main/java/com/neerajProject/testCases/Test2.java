@@ -1,8 +1,9 @@
 package com.neerajProject.testCases;
 
-import utilityFiles.BaseTest;
 import org.openqa.selenium.WebDriver;
 import org.testng.annotations.Test;
+
+import com.neerajProject.pages.BaseTest;
 
 public class Test2 extends BaseTest {
 
