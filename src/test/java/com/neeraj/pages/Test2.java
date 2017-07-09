@@ -1,6 +1,6 @@
 package com.neeraj.pages;
 
-import com.neeraj.project.BaseTest;
+import utilityFiles.BaseTest;
 import org.openqa.selenium.WebDriver;
 import org.testng.annotations.Test;
 

@@ -1,0 +1,7 @@
+2017-07-09 14:53:40-main--INFO -utilityFiles.BaseTest:Hi logging here
+  2017-07-09 14:53:40-main--ERROR-utilityFiles.BaseTest:Hi logging here Error
+  2017-07-09 14:53:40-main--INFO -utilityFiles.BaseTest:Navigating to -->https://www.facebook.com/
+  2017-07-09 14:53:50-main--INFO -utilityFiles.BaseTest:Clicking on Element-->[[ChromeDriver: chrome on WIN8_1 (bb556eb4e59d5b9449bec24e83ed83b3)] -> xpath: .//*[@id='email']]
+  2017-07-09 14:53:50-main--INFO -utilityFiles.BaseTest:Setting Text for WebElement-->[[ChromeDriver: chrome on WIN8_1 (bb556eb4e59d5b9449bec24e83ed83b3)] -> xpath: .//*[@id='email']] and text is-->testidtvt@gmail.com
+  2017-07-09 14:53:51-main--INFO -utilityFiles.BaseTest:Navigating to -->http://en.wikipedia.org/
+  

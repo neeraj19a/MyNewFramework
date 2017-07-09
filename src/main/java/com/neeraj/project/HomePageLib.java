@@ -13,14 +13,15 @@ import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.Test;
+import utilityFiles.BaseTest;
+import utilityFiles.WebDriverOperations;
 
 
-public class App extends BaseTest {
+public class HomePageLib extends BaseTest {
     WebDriverWait dynamicwait = new WebDriverWait(driver, 15);
     String email = "mortal" + randomString() + "@gmail.com";
     HomePage homePage = new HomePage(driver);
     WebDriverOperations wops = new WebDriverOperations();
-
 
     String facebookurl = "https://www.facebook.com/";
 
@@ -32,7 +33,7 @@ public class App extends BaseTest {
         //driver.get(baseurl);
     }
 
-    //@Test(priority=1)
+    @Test(priority=1)
     public void opengmail() throws InterruptedException {
         String baseurl = "https://mail.google.com/";
         driver.manage().window().maximize();
@@ -59,9 +60,10 @@ public class App extends BaseTest {
 
     }
 
-    //@Test(priority=2)
+    @Test(priority=2)
     public void openfacebook() throws InterruptedException {
         String baseurl = "https://www.facebook.com/";
+        Log.info("In Facebook");
         driver.manage().window().maximize();
         driver.get(baseurl);
         wops.waitForPageToLoad("facebook.com");

@@ -1,42 +1,48 @@
-package com.neeraj.project;
+package utilityFiles;
 
-import org.openqa.selenium.OutputType;
-import org.openqa.selenium.TakesScreenshot;
-import org.openqa.selenium.WebDriver;
+import org.apache.log4j.Logger;
+import org.apache.log4j.PropertyConfigurator;
+import org.openqa.selenium.*;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
-import org.openqa.selenium.remote.RemoteWebDriver;
 import org.testng.IHookCallBack;
 import org.testng.IHookable;
 import org.testng.ITestResult;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
-import org.testng.annotations.Listeners;
 import ru.yandex.qatools.allure.annotations.Attachment;
+
 import java.io.File;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
 
-public class BaseTest implements IHookable{
+public class BaseTest implements IHookable {
 
-    String methodName="";
+    String methodName = "";
     public static WebDriver driver;
+    public static final org.apache.log4j.Logger Log = Logger.getLogger(BaseTest.class);
     //public static WebDriverOperations wops = new WebDriverOperations();
+    public BaseTest(){
 
+    /*    org.apache.log4j.BasicConfigurator.configure();
+        PropertyConfigurator.configure(System.getProperty("user.dir")+"\\src\\main\\java\\resources\\log4j.properties");
+    */}
 
     @BeforeMethod
-    public void setup(){
-        if(System.getProperty("browser").equalsIgnoreCase("Firefox")) {
+    public void setup() {
+        if (System.getProperty("browser").equalsIgnoreCase("Firefox")) {
             System.out.println("Opening Firefox Browser");
             driver = new FirefoxDriver();
-        }
-        else
-        {
+        } else {
             File chromeDriver = new File(System.getProperty("user.dir") + "\\src\\main\\java\\resources\\chromedriver.exe");
             System.out.println("Opening Chrome Browser");
-            System.setProperty("webdriver.chrome.driver", chromeDriver.getAbsolutePath() );
+            System.setProperty("webdriver.chrome.driver", chromeDriver.getAbsolutePath());
             driver = new ChromeDriver();
         }
+        org.apache.log4j.BasicConfigurator.configure();
+        PropertyConfigurator.configure(System.getProperty("user.dir")+"\\src\\main\\java\\resources\\log4j.properties");
 
     }
 
@@ -59,7 +65,7 @@ public class BaseTest implements IHookable{
         callBack.runTestMethod(testResult);
         if (testResult.getThrowable() != null) {
             try {
-                methodName=testResult.getMethod().getMethodName();
+                methodName = testResult.getMethod().getMethodName();
                 takeScreenShot();
             } catch (IOException e) {
                 e.printStackTrace();
@@ -69,7 +75,8 @@ public class BaseTest implements IHookable{
 
     @Attachment(value = "Failure in method", type = "image/png")
     private byte[] takeScreenShot() throws IOException {
-        System.out.println("==========Found failure in method---->  "+methodName+"  <----- Taking screenshot============");
+        System.out.println("==========Found failure in method---->  " + methodName + "  <----- Taking screenshot============");
         return ((TakesScreenshot) driver).getScreenshotAs(OutputType.BYTES);
     }
+
 }

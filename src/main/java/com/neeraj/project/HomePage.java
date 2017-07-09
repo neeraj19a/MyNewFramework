@@ -6,6 +6,8 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.Select;
+import utilityFiles.BaseTest;
+import utilityFiles.WebDriverOperations;
 
 public class HomePage extends BaseTest {
 
@@ -169,8 +171,11 @@ public class HomePage extends BaseTest {
 
     //######Facebook Login
     public void clickFacebookEmail(String Email) {
-        FacebookEmail.click();
-        FacebookEmail.sendKeys(Email);
+        WebDriverOperations webDriverOperations=new WebDriverOperations();
+        webDriverOperations.click(FacebookEmail);
+        //FacebookEmail.click();
+        //FacebookEmail.sendKeys(Email);
+        webDriverOperations.setText(FacebookEmail,Email);
     }
 
     public void clickFacebookPassword(String Pass) {

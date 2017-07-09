@@ -1,4 +1,4 @@
-package com.neeraj.project;
+package utilityFiles;
 
 import java.util.*;
 
@@ -15,8 +15,14 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 public class WebDriverOperations extends BaseTest {
 
 
-    WebDriverWait wait = new WebDriverWait(driver, 18);
+    public WebDriverWait wait = new WebDriverWait(driver, 18);
     private WebElement webElem;
+
+    public WebDriverOperations get(String URL) {
+        Log.info("Navigating to -->" + URL);
+        driver.get(URL);
+        return this;
+    }
 
     public WebDriverOperations onElement(WebElement element) {
         this.webElem = element;
@@ -24,13 +30,24 @@ public class WebDriverOperations extends BaseTest {
     }
 
     public WebDriverOperations click() {
+        Log.info("Hi logging Click Here");
         webElem.click();
         return this;
     }
 
-    public void click(WebElement element) {
+    public WebDriverOperations click(WebElement element) {
+        Log.info("Clicking on Element-->" + element);
         element.click();
+        return this;
     }
+
+    public WebDriverOperations setText(WebElement element, String text) {
+        System.out.println("Setting Text for WebElement-->" + element.toString() + " and text is-->" + text);
+        Log.info("Setting Text for WebElement-->" + element.toString() + " and text is-->" + text);
+        element.sendKeys(text);
+        return this;
+    }
+
 
     /**
      * This function will wait till whole page gets loaded with the mentioned
@@ -193,6 +210,7 @@ public class WebDriverOperations extends BaseTest {
         } catch (Exception e) {
             e.printStackTrace();
         }
+
     }
 
     /**
@@ -225,7 +243,8 @@ public class WebDriverOperations extends BaseTest {
             elements.add(ok.getAttribute("outerHTML"));
         }
 
-        System.out.println("here is HML" + elements);
+        System.out.println("here is HTML" + elements);
         return elements;
     }
+
 }
