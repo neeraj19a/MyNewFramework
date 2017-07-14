@@ -80,16 +80,14 @@ public class Test1 extends BaseTest {
         //webDriverOperations.click();
         driver.manage().window().maximize();
         Thread.sleep(9000);
-        //JQuery Support
         WebElement element=webDriverOperations.findElementByJQuery("jQuery(\"span:contains('Search Course')\").click()");
         System.out.println("Lets click");
 
         element.click();
         System.out.println("Clicked");
-        HomePage homePage=new HomePage(driver);
-        webDriverOperations.get("https://www.facebook.com/");
+        /*HomePage homePage=new HomePage(driver);
         homePage.clickFacebookEmail("testidtvt@gmail.com");
-        webDriverOperations.get("http://en.wikipedia.org/");
+        */webDriverOperations.get("http://en.wikipedia.org/");
         System.out.println(webDriverOperations.returnHTML("#mp-itn b a"));
 
         Document doc = Jsoup.connect("http://en.wikipedia.org/").get();

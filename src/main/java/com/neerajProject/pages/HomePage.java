@@ -140,6 +140,8 @@ public class HomePage extends BaseTest {
     @FindBy(xpath = ".//span[@class='fragmentEnt']/../..")
     public WebElement FacebookSearchItems;
 
+    @FindBy(xpath = ".//span[@class=%s]")
+    public WebElement FacebookTry;
 
     //####TrafficFunction
     public void clickTrafficEmail(String Email) {
@@ -174,8 +176,13 @@ public class HomePage extends BaseTest {
     //######Facebook Login
     public void clickFacebookEmail(String Email) {
         webDriverOperations.click(FacebookEmail);
+        /*//To implement findAndReplace
+        WebElement element=webDriverOperations.findandReplace(".//span[@class=%s]","xpath");
+        webDriverOperations.click(element);
+        */
         //FacebookEmail.click();
         //FacebookEmail.sendKeys(Email);
+
         webDriverOperations.setText(FacebookEmail,Email);
     }
 

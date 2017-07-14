@@ -21,10 +21,8 @@ public class WebDriverOperations extends BaseTest {
     private WebElement webElem;
 
     public Boolean get(String URL) {
-        System.out.println("Navigating to -->" + URL);
         Log.info("Navigating to -->" + URL);
         driver.get(URL);
-        System.out.println("Waiting for Page to Load");
         Log.info("Waiting for Page to Load ");
         WebDriverWait wait = new WebDriverWait(driver, 45);
         return wait.until(new ExpectedCondition<Boolean>() {
@@ -39,6 +37,23 @@ public class WebDriverOperations extends BaseTest {
         });
     }
 
+    public WebElement findandReplace(String xpath,String replacewith){
+        String path= String.format(xpath,replacewith );
+        WebElement element=driver.findElement(By.xpath(path));
+        return element;
+    }
+
+    public List<WebElement> findandReplace(String xpath,String replacewith[]){
+        List<WebElement> elements=new ArrayList<>();
+        for(String replace:replacewith) {
+            String path = String.format(xpath, replace);
+            elements.add(driver.findElement(By.xpath(path)));
+        }
+
+        return elements;
+    }
+
+
     public WebDriverOperations onElement(WebElement element) {
         this.webElem = element;
         return this;
@@ -51,14 +66,12 @@ public class WebDriverOperations extends BaseTest {
     }
 
     public WebDriverOperations click(WebElement element) {
-        System.out.println("Clicking on Element-->" + element);
         Log.info("Clicking on Element-->" + element);
         element.click();
         return this;
     }
 
     public WebDriverOperations setText(WebElement element, String text) {
-        System.out.println("Setting Text " + text + " for WebElement-->" + element.toString());
         Log.info("Setting Text " + text + " for WebElement-->" + element.toString());
         element.sendKeys(text);
         return this;
@@ -74,7 +87,6 @@ public class WebDriverOperations extends BaseTest {
      */
     public boolean waitForPageToLoad(final String pageURL) {
 
-        System.out.println("Waiting for Page to Load with URL---->" + pageURL);
         Log.info("Waiting for Page to Load with URL---->" + pageURL);
         WebDriverWait wait = new WebDriverWait(driver, 45);
         return wait.until(new ExpectedCondition<Boolean>() {
@@ -256,7 +268,6 @@ public class WebDriverOperations extends BaseTest {
      * @return
      */
     public static List<String> returnHTML(String locator) {
-        System.out.println("Looking for HTML with locator -->" + locator);
         Log.info(("Looking for HTML with locator -->" + locator));
         List<WebElement> we = driver.findElements(By.cssSelector(locator));
         List<String> elements = new ArrayList<>();
